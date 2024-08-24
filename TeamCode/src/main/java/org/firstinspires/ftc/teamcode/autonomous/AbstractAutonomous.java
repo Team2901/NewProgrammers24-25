@@ -18,7 +18,7 @@ public abstract class AbstractAutonomous extends LinearOpMode {
         robot.leftDrive.setPower(.75);
         robot.rightDrive.setPower(.75);
         while (timer.seconds() < seconds) {
-
+            idle();
         }
         robot.leftDrive.setPower(0);
         robot.rightDrive.setPower(0);
