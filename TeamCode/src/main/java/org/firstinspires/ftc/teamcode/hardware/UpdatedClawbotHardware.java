@@ -27,7 +27,7 @@ public class UpdatedClawbotHardware {
         leftDrive = hardwareMap.get(DcMotorEx.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotorEx.class, "rightDrive");
         arm = hardwareMap.get(DcMotorEx.class, "arm");
-        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         leftDrive.setPower(0);
         rightDrive.setPower(0);
         arm.setPower(0);
