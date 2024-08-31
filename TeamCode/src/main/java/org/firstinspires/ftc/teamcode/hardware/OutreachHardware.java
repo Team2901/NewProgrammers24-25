@@ -19,7 +19,7 @@ public class OutreachHardware {
     public void init(HardwareMap hardwareMap) {
         leftDrive = hardwareMap.get(DcMotorEx.class, "leftDrive");
         rightDrive = hardwareMap.get(DcMotorEx.class, "rightDrive");
-        rightDrive.setDirection(DcMotorSimple.Direction.REVERSE);
+        leftDrive.setDirection(DcMotorSimple.Direction.REVERSE);
         leftDrive.setPower(0);
         rightDrive.setPower(0);
         leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
