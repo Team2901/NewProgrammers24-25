@@ -26,8 +26,10 @@ public class OutreachTeleOp extends OpMode {
         double rightMotor = gamepad.left_stick_y.getValue() / 4;
         if(gamepad.right_stick_x.getValue() > 0){
             leftMotor += gamepad.right_stick_x.getValue() / 3;
+            rightMotor -= gamepad.right_stick_x.getValue() / 3;
         }else{
             rightMotor += Math.abs(gamepad.right_stick_x.getValue()) / 3;
+            leftMotor -= Math.abs(gamepad.right_stick_x.getValue()) / 3;
         }
         robot.leftDrive.setPower(leftMotor);
         robot.rightDrive.setPower(rightMotor);

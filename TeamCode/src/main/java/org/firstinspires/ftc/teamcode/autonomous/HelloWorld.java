@@ -17,7 +17,7 @@ public class HelloWorld  extends AbstractAutonomous{
         telemetry.update();
 
         waitForStart();
-        telemetry.addLine("My name is Autumn");
+        telemetry.addLine("My name is Robot");
         telemetry.update();
 
         // wait for end of autonomous
