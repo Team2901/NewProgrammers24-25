@@ -11,11 +11,11 @@ public class KaylaMartinFirstAuto extends AbstractAutonomous {
 
         for(int i = 0; i < 4; i++){
             move(5);
-            turnLeft(3.5F);
+            turnLeft(3);
         }
         for(int i = 0; i < 4; i++){
             move(5);
-            turnRight(3.5F);
+            turnRight(3);
         }
 
 
