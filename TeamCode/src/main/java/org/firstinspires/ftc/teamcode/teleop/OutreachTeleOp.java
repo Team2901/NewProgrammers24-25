@@ -22,15 +22,12 @@ public class OutreachTeleOp extends OpMode {
     @Override
     public void loop() {
         gamepad.update();
+        // makes robot go forward/backward
         double leftMotor = gamepad.left_stick_y.getValue() / 4;
         double rightMotor = gamepad.left_stick_y.getValue() / 4;
-        if(gamepad.right_stick_x.getValue() > 0){
-            leftMotor += gamepad.right_stick_x.getValue() / 3;
-            rightMotor -= gamepad.right_stick_x.getValue() / 3;
-        }else{
-            rightMotor += Math.abs(gamepad.right_stick_x.getValue()) / 3;
-            leftMotor -= Math.abs(gamepad.right_stick_x.getValue()) / 3;
-        }
+        // makes robot turn
+        leftMotor += gamepad.right_stick_x.getValue() / 3;
+        rightMotor -= gamepad.right_stick_x.getValue() / 3;
         robot.leftDrive.setPower(leftMotor);
         robot.rightDrive.setPower(rightMotor);
         telemetry.addData("leftMotor", leftMotor);
