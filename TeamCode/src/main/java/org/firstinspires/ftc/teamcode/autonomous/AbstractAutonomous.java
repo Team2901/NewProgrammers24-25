@@ -14,14 +14,7 @@ public abstract class AbstractAutonomous extends LinearOpMode {
     }
 
     public void move(int seconds) {
-        timer.reset();
-        robot.leftDrive.setPower(.75);
-        robot.rightDrive.setPower(.75);
-        while (timer.seconds() < seconds) {
-            idle();
-        }
-        robot.leftDrive.setPower(0);
-        robot.rightDrive.setPower(0);
+
     }
 
     public void openClaw() {
