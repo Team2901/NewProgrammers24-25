@@ -5,13 +5,21 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.ElapsedTime;
 
 import org.firstinspires.ftc.teamcode.hardware.ImprovedGamepad;
+import org.firstinspires.ftc.teamcode.hardware.OutreachHardware;
 import org.firstinspires.ftc.teamcode.hardware.UpdatedClawbotHardware;
 
 @TeleOp(name="AutumnLandryFirstTeleop (Tank Drive)", group="Tutorial")
 public class AutumnLandryFirstTeleop extends OpMode {
-    UpdatedClawbotHardware robot = new UpdatedClawbotHardware();
+    OutreachHardware robot = new OutreachHardware();
     ImprovedGamepad gamepad;
 
+    public void moveInches(int inches) {
+        int leftTarget = robot.leftDrive.getCurrentPosition() + (int) (inches * robot.COUNTS_PER_INCH);
+        int rightTarget = robot.rightDrive.getCurrentPosition() + (int) (inches * robot.COUNTS_PER_INCH);
+
+        robot.leftDrive.setTargetPosition(leftTarget);
+        robot.rightDrive.setTargetPosition(rightTarget);
+    }
     @Override
     public void init() {
         gamepad = new ImprovedGamepad(gamepad1, new ElapsedTime(), "Gamepad");
@@ -21,6 +29,16 @@ public class AutumnLandryFirstTeleop extends OpMode {
     @Override
     public void loop() {
         gamepad.update();
+
+        if(gamepad.a.isInitialPress()){
+            moveInches(3 * 12);
+        }
+
+        telemetry.addData("Left Count", robot.leftDrive.getCurrentPosition());
+        telemetry.addData("Right Count", robot.rightDrive.getCurrentPosition());
+
+        telemetry.addData("Left Target", robot.leftDrive.getTargetPosition());
+        telemetry.addData("Right Target", robot.leftDrive.getTargetPosition());
 
         double leftMotorPower = 0;
         double rightMotorPower = 0;

@@ -14,7 +14,7 @@ public class OutreachHardware {
     public DcMotorEx leftDrive;
     public DcMotorEx rightDrive;
 
-
+    public static final double COUNTS_PER_INCH = 530;
 
     public void init(HardwareMap hardwareMap) {
         leftDrive = hardwareMap.get(DcMotorEx.class, "leftDrive");
